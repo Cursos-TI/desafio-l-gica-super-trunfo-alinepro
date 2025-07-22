@@ -3,30 +3,25 @@
 #include <time.h>
 
 // Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Tema 2 - Comparação de cartas
-// Tema 3 - Comparação de atributos específicos 
 // Desenvolvimento do sistema de cadastro de cartas de cidades.
-//Teste Aline
 
 int main() {
-    int carta1;
-    char nomedacidade1 [100];
+    int opcao, resultadoPopulacao, resultadoArea;
+    char nomedacidade1[100];
     float populacao1;
     float area1;
-    
-    int carta2;
-    char nomedacidade2 [100];
+
+    char nomedacidade2[100];
     float populacao2;
     float area2;
-    
+
     srand(time(0));
 
-    // O nome dos dois países e os valores de cada atributo para cada carta.
+    //NOME DAS CIDADES E VALORES DOS ATRIBUTOS
     // CARTA 1
     printf("CARTA 1\n");
     printf("Digite o nome da Cidade:\n");
-    scanf("%s", nomedacidade1);
+    scanf(" %c", nomedacidade1);
 
     printf("Digite a população:\n");
     scanf("%f", &populacao1);
@@ -38,10 +33,11 @@ int main() {
     printf("Nome da Cidade: %s\n", nomedacidade1);
     printf("População: %.2f\n", populacao1);
     printf("Área: %.2f km2\n", area1);
-    
+
+    // CARTA 2
     printf("CARTA 2\n");
     printf("Digite o nome da Cidade:\n");
-    scanf("%s", nomedacidade2);
+    scanf(" %[^\n]", nomedacidade2);
 
     printf("Digite a população:\n");
     scanf("%f", &populacao2);
@@ -53,65 +49,60 @@ int main() {
     printf("Nome da Cidade: %s\n", nomedacidade2);
     printf("População: %.2f\n", populacao2);
     printf("Área: %.2f km2\n", area2);
-    
-    //SUPERPODER - SOMA DOS ATRIBUTOS
-    //Soma dos atributos população e área
 
-    float superPoder1 = populacao1 + area1);
+    // SUPERPODER - SOMA DOS ATRIBUTOS
+    float superPoder1 = populacao1 + area1;
     printf("A soma dos atributos da carta 1 é: %.2f\n", superPoder1);
 
-    float superPoder2 = populacao2 + area2);
+    float superPoder2 = populacao2 + area2;
     printf("A soma dos atributos da carta 2 é: %.2f\n", superPoder2);
 
-    //comparação de atributos utilizando OPERADOR TERNÁRIO
-    superPoder1 > superPoder2 ? 1:0;
+    // Comparação de superpoderes
+    if (superPoder1 > superPoder2) {
         printf("Carta 1 venceu!\n");
-    
-    superPoder1 < superPoder2 ? 1:0;
+    } else if (superPoder1 < superPoder2) {
         printf("Carta 2 venceu!\n");
-    
-    superPoder1 == superPoder2 ? 1:0;
+    } else {
         printf("Empate!\n");
-    //Qual carta venceu.
-    //Em caso de empate, exibir a mensagem "Empate!".
-    //O atributo usado na comparação.
-    // comparação de atributos utilizando operadores, switch e if-else
+    }
 
-    printf("Escolha o atributo:\n");
-    printf("1. População carta 1\n");
-    printf("2. Área carta 1\n");
-    printf("3. População carta 2\n");
-    printf("5. Área carta 2\n");
+    // Menu de comparação de atributos
+    printf("\nEscolha o atributo para comparar:\n");
+    printf("1. População\n");
+    printf("2. Área\n");
     printf("3. Sair\n");
+    printf("Digite a opção (1/2/3): ");
+    scanf("%d", &opcao);
 
-    printf("Escolha o atributo para comparar (1 ou 2):\n");
-    scanf(("%d", &carta1) && ("%d", &carta2));
-    
-    switch (carta1 && carta2){
-            case 1:
-                if (populacao1 > populacao2) {
-                printf("### CARTA 1 TEM MAIOR POPULAÇÃO! ###\n");
-                } else if (populacao1 < populacao2) {                                             
-                printf("### CARTA 2 TEM MAIOR POPULAÇÃO!! ###\n");
-                } else {
+    switch (opcao) {
+        case 1:
+            printf("VOCÊ ESCOLHEU A OPÇÃO 1\n");
+            resultadoPopulacao = populacao1 > populacao2 ? 1 : 0
+            break;
+        case 2:
+            printf("VOCÊ ESCOLHEU A OPÇÃO 2\n");
+            resultadoArea = area1 > area2 ? 1 : 0
+            break;
+        case 3:
+            printf("Saindo...\n");
+            break;
+        default:
+            printf("Opção Inválida\n");
+    }
+            if(resultadoPopulacao == 1){ 
+            printf("### CARTA 1 TEM MAIOR POPULAÇÃO! ###\n");
+            } else if (populacao1 < populacao2) {
+                printf("### CARTA 2 TEM MAIOR POPULAÇÃO! ###\n");
+            } else {
                 printf("EMPATE DE POPULAÇÕES!\n");
-                }
-                break;
-            case 2:
-                if (area1 > area2) {
+            }
+            if (area1 > area2) {
                 printf("### CARTA 1 TEM MAIOR ÁREA! ###\n");
-                } else if (area1 < area2) {                                             
-                printf("### CARTA 2 TEM MAIOR ÁREA!! ###\n");
-                } else {
+            } else if (area1 < area2) {
+                printf("### CARTA 2 TEM MAIOR ÁREA! ###\n");
+            } else {
                 printf("EMPATE DE ÁREAS!\n");
-                }
-                break;
-            case 3:
-                printf("Saindo...\n");
-                break;
-            default:
-        printf("Opção Inválida\n");
-        }
-        
-return 0;
+            }
+
+    return 0;
 }
