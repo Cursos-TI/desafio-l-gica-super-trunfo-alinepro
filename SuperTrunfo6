@@ -21,11 +21,11 @@ int main() {
     // CARTA 1
     printf("CARTA 1\n");
     printf("Digite o nome da Cidade:\n");
-    scanf(" %c", nomedacidade1);
+    scanf(" %s", nomedacidade1);
 
     printf("Digite a população:\n");
     scanf("%f", &populacao1);
-
+    
     printf("Digite a área:\n");
     scanf("%f", &area1);
 
@@ -37,7 +37,7 @@ int main() {
     // CARTA 2
     printf("CARTA 2\n");
     printf("Digite o nome da Cidade:\n");
-    scanf(" %[^\n]", nomedacidade2);
+    scanf(" %s", nomedacidade2);
 
     printf("Digite a população:\n");
     scanf("%f", &populacao2);
@@ -77,18 +77,7 @@ int main() {
     switch (opcao) {
         case 1:
             printf("VOCÊ ESCOLHEU A OPÇÃO 1\n");
-            resultadoPopulacao = populacao1 > populacao2 ? 1 : 0
-            break;
-        case 2:
-            printf("VOCÊ ESCOLHEU A OPÇÃO 2\n");
-            resultadoArea = area1 > area2 ? 1 : 0
-            break;
-        case 3:
-            printf("Saindo...\n");
-            break;
-        default:
-            printf("Opção Inválida\n");
-    }
+            resultadoPopulacao = populacao1 > populacao2 ? 1 : 0;
             if(resultadoPopulacao == 1){ 
             printf("### CARTA 1 TEM MAIOR POPULAÇÃO! ###\n");
             } else if (populacao1 < populacao2) {
@@ -96,6 +85,10 @@ int main() {
             } else {
                 printf("EMPATE DE POPULAÇÕES!\n");
             }
+            break;
+        case 2:
+            printf("VOCÊ ESCOLHEU A OPÇÃO 2\n");
+            resultadoArea = area1 > area2 ? 1 : 0;
             if (area1 > area2) {
                 printf("### CARTA 1 TEM MAIOR ÁREA! ###\n");
             } else if (area1 < area2) {
@@ -103,6 +96,12 @@ int main() {
             } else {
                 printf("EMPATE DE ÁREAS!\n");
             }
-
+            break;
+        case 3:
+            printf("Saindo...\n");
+            break;
+        default:
+            printf("Opção Inválida\n");
+    }          
     return 0;
 }
